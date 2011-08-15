@@ -16,9 +16,9 @@ Symfony2 bundle to localize
 * intl-extension
 
 
-### Featurs
+### Features
 
-* Twig Extension: see [Resources/doc/twig.rst](GOCLocaleBundle/blob/master/Resources/doc/twig.rst)
+* Twig Extension: see [Resources/doc/twig.rst](GOCLocaleBundle/blob/master/Resources/doc/twig.rst) for documentation
 
 
 ### Todo
@@ -26,6 +26,11 @@ Symfony2 bundle to localize
 * addresses and salutations formatter
 * unit tests
 * doc comments
+
+
+### License
+
+see [LICENSE](GOCLocaleBundle/blob/master/LICENSE)
 
 
 ### Support
