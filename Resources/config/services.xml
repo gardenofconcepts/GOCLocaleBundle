@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="goc_locale.twig.class">GOC\LocaleBundle\Twig\Extension\LocaleExtension</parameter>
+        <parameter key="goc_locale.listener.class">GOC\LocaleBundle\Listener\Listener</parameter>
+    </parameters>
+
+    <services>
+        <service id="goc_locale.twig" class="%goc_locale.twig.class%">
+            <argument type="service" id="service_container" />
+            <tag name="twig.extension" />
+        </service>
+        <service id="goc_locale.listener" class="%goc_locale.listener.class%">
+            <argument type="service" id="service_container" />
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
+        </service>
+    </services>
+
+</container>
