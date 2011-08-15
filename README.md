@@ -13,7 +13,7 @@ Symfony2 bundle to localize
 * intl-extension
 
 ### Featurs
-* Twig Extension: see [here](Resources/doc/twig.rst)
+* Twig Extension: see [Resources/doc/twig.rst](blob/master/Resources/doc/twig.rst)
 
 ### Todo
 * addresses and salutations formatter
