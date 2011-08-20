@@ -28,10 +28,13 @@ class Listener
 
     public function onKernelRequest($request)
     {
+        $locales = array();
         $request = $request->getRequest();
         $session = $request->getSession();
-        
-        $locales = array($session->getLocale());
+
+        if ($session) {
+            $locales[] = $session->getLocale();
+        }
 
         if ($request->server->has('HTTP_ACCEPT_LANGUAGE')) {
             $locales[] = \Locale::acceptFromHttp($request->server->get('HTTP_ACCEPT_LANGUAGE'));
@@ -39,7 +42,9 @@ class Listener
 
         foreach ($locales as $locale) {
             if (!empty($locale)) {
-                $session->setLocale($locale);
+                if ($session) {
+                    $session->setLocale($locale);
+                }
                 \Locale::setDefault($locale);
                 break;
             }
