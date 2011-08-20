@@ -13,7 +13,8 @@ Symfony2 bundle to localize
 ### Requirements
 
 * Symfony 2 ;-)
-* intl-extension
+* intl
+* ctype
 
 
 ### Features

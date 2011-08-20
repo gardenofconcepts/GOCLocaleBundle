@@ -65,19 +65,19 @@ class LocaleExtension extends \Twig_Extension
         );
     }
 
-    public function formatDatetime($datetime, $formatDate = null, $formatTime = null, $locale = null)
+    public function formatDatetime($datetime, $formatDate = null, $formatTime = null, $timezone = null, $locale = null)
     {
-        return $this->dateFormatter->formatDatetime($datetime, $formatDate, $formatTime, $locale);
+        return $this->dateFormatter->formatDatetime($datetime, $formatDate, $formatTime, $timezone, $locale);
     }
 
-    public function formatDate($date, $format = null, $locale = null)
+    public function formatDate($date, $format = null, $timezone = null, $locale = null)
     {
-        return $this->dateFormatter->formatDate($date, $format, $locale);
+        return $this->dateFormatter->formatDate($date, $format, $timezone, $locale);
     }
 
-    public function formatTime($time, $format = null, $locale = null)
+    public function formatTime($time, $format = null, $timezone = null, $locale = null)
     {
-        return $this->dateFormatter->formatTime($time, $format, $locale);
+        return $this->dateFormatter->formatTime($time, $format, $timezone, $locale);
     }
 
     public function formatCountry($country, $locale = null)

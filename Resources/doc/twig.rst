@@ -3,11 +3,17 @@ Twig extension
 
 datetime filter
 ---------------
-* datetime($formatDate = 'full', $formatTime = 'short', $locale = null)
-* date($format = 'full', $locale = null)
-* time($format = 'short', $locale = null)
+* datetime($formatDate = 'full', $formatTime = 'short', $timezone = null, $locale = null)
+* date($format = 'full', $timezone = null, $locale = null)
+* time($format = 'short', $timezone = null, $locale = null)
 
-$format equals to IntlDateFormatter::FULL, etc.
+===$format===
+FULL, LONG, MEDIUM, SHORT, ATOM, COOKIE, ISO8601, RFC822, RFC850, RFC1036, RFC1123, RFC2822, RFC3339, RSS, W3C
+(not case-insensitive)
+
+or date/datetime formats, like Y/m/d or YYYY/mm/dd
+
+
 
 numeric filter
 --------------

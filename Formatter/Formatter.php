@@ -22,14 +22,32 @@ use Symfony\Component\Locale\Locale;
  */
 class Formatter
 {
-    protected $container;
+    private $container;
 
     /**
      * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container = null)
+    {
+        if ($container) {
+            $this->setContainer($container);
+        }
+    }
+
+    /**
+     * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+     */
+    public function setContainer(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+    /**
+     * @return \Symfony\Component\DependencyInjection\ContainerInterface
+     */
+    public function getContainer()
+    {
+        return $this->container;
     }
 
     public function getLocale($locale = null)
