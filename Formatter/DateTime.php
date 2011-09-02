@@ -128,7 +128,7 @@ class DateTime extends Formatter
             $formatter  = new \IntlDateFormatter($locale, $formatDate, $formatTime, $datetime->getTimezone()->getName());
         }
 
-        return $formatter->format($datetime);
+        return $formatter->format($this->sanitizeDateForIntl($datetime));
     }
 
     public function formatDate($date, $format = null, $timezone = null, $locale = null)
@@ -148,7 +148,22 @@ class DateTime extends Formatter
             $formatter  = new \IntlDateFormatter($locale, $format, \IntlDateFormatter::NONE, $date->getTimezone()->getName());
         }
 
-        return $formatter->format($date);
+        return $formatter->format($this->sanitizeDateForIntl($date));
+    }
+
+    /**
+     * \IntlDateFormatter::format() accepts timestamps in seconds and since PHP 5.3.4 DateTime objects
+     *
+     * This call ensures, that the method is fed the right format
+     *
+     * @author Markus Tacker <m@coderbyheart.de>
+     * @param mixed $date
+     * @return mixed
+     */
+    protected function sanitizeDateForIntl($date)
+    {
+        if (!($date instanceof \DateTime)) return $date;
+        if (version_compare(phpversion(), '5.3.4', '<')) return $date->getTimestamp();
     }
 
     public function formatTime($time, $format = null, $timezone = null, $locale = null)
@@ -168,6 +183,6 @@ class DateTime extends Formatter
             $formatter  = new \IntlDateFormatter($locale, \IntlDateFormatter::NONE, $format, $time->getTimezone()->getName());
         }
 
-        return $formatter->format($time);
+        return $formatter->format($this->sanitizeDateForIntl($time));
     }
 }
