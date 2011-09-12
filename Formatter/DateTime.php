@@ -157,13 +157,14 @@ class DateTime extends Formatter
      * This call ensures, that the method is fed the right format
      *
      * @author Markus Tacker <m@coderbyheart.de>
-     * @param mixed $date
-     * @return mixed
+     * @param string|\DateTime $date
+     * @return string|\DateTime
      */
     protected function sanitizeDateForIntl($date)
     {
         if (!($date instanceof \DateTime)) return $date;
         if (version_compare(phpversion(), '5.3.4', '<')) return $date->getTimestamp();
+        return $date;
     }
 
     public function formatTime($time, $format = null, $timezone = null, $locale = null)
