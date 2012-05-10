@@ -57,7 +57,7 @@ class Numeric extends Formatter
         $locale = $this->getLocale($locale);
         $formatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY );
 
-        return $formatter->formatCurrency($currency, $type);
+        return $formatter->formatCurrency(round($currency, 2), $type);
     }
 
     public function formatPercent($percent, $round = 2, $base = null, $locale = null)
