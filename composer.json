@@ -2,9 +2,12 @@
     "name": "goc/locale-bundle",
     "description": "Symfony2 bundle for localize dates, numerics, etc.",
     "type": "library",
-    "homepage": "https://github.com/gardenofconcepts/GOCLocaleBundle.git",
+    "homepage": "https://github.com/gardenofconcepts/GOCLocaleBundle",
     "require": {
         "php": ">=5.3.2"
     },
-    "target-dir": "GOC/LocaleBundle"
+    "target-dir": "GOC/LocaleBundle",
+    "autoload": {
+        "psr-0": { "GOC\\LocaleBundle": "" }
+    }
 }
